@@ -88,7 +88,7 @@
     (Serves N12 Pizza)
 
     (At C N9)
-    (= (capacity C) 0)
+    (= (capacity C) 10)
     (= (load C) 0)
 
     (= (volume Pizza) 8)
