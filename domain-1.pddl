@@ -35,6 +35,6 @@
 (:action DELIVER
     :parameters (?a - node ?b - item ?c - courier ?d - customer ?e - order)
     :precondition (and (At ?c ?a) (CustomerAt ?d ?a) (Ordered ?d ?b ?e) (InBag ?b) (not (Made ?e)))
-    :effect (and (Made ?e) (not (InBag ?c)))
+    :effect (and (Made ?e) (not (InBag ?b)))
 )
 )
