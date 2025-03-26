@@ -1,4 +1,4 @@
-(define (problem problem_name_4) (:domain domain_name_4)
+(define (problem problem_name_5) (:domain domain_name_5)
 (:objects
     C - courier
 
@@ -15,42 +15,6 @@
     N11 - node
     N12 - node
     N13 - node
-
-    N1N2 - route
-    N1N6 - route
-    N1N9 - route
-    N1N12 - route
-
-    N2N1 - route
-    N2N3 - route
-
-    N3N2 - route
-    N3N4 - route
-
-    N4N5 - route
-
-    N5N6 - route
-    N5N2 - route
-
-    N6N1 - route
-    N7N1 - route
-
-    N7N6 - route
-    N7N8 - route
-
-    N8N7 - route
-
-    N9N1 - route
-    N9N10 - route
-
-    N10N9 - route
-
-    N11N9 - route
-
-    N12N11 - route
-    N12N13 - route
-
-    N13N12 - route
 
     C1 - customer
     C2 - customer
@@ -77,63 +41,40 @@
 
 (:init
     (Connected N1 N2)
-    (=(cost N1N2) 2)
     (Connected N1 N6)
-    (=(cost N1N6) 3)
     (Connected N1 N9)
-    (=(cost N1N9) 4)
     (Connected N1 N12)
-    (=(cost N1N12) 7)
 
     (Connected N2 N1)
-    (=(cost N2N1) 2)
     (Connected N2 N3)
-    (=(cost N2N3) 2)
 
     (Connected N3 N2)
-    (=(cost N3N2) 2)
     (Connected N3 N4)
-    (=(cost N3N4) 3)
 
     (Connected N4 N5)
-    (=(cost N4N5) 3)
 
     (Connected N5 N2)
-    (=(cost N5N2) 2)
     (Connected N5 N6)
-    (=(cost N5N6) 4)
 
     (Connected N6 N1)
-    (=(cost N6N1) 3)
     (Connected N6 N7)
-    (=(cost N6N7) 2)
 
     (Connected N7 N6)
-    (=(cost N7N6) 2)
     (Connected N7 N8)
-    (=(cost N7N8) 9)
 
     (Connected N8 N7)
-    (=(cost N8N7) 9)
     
     (Connected N9 N1)
-    (=(cost N9N1) 4)
     (Connected N9 N10)
-    (=(cost N9N10) 2)
 
     (Connected N10 N9)
-    (=(cost N10N9) 2)
 
     (Connected N11 N9)
-    (=(cost N11N9) 2)
 
     (Connected N12 N11)
-    (=(cost N12N11) 4)
     (Connected N12 N13)
-    (=(cost N12N13) 5)
 
     (Connected N13 N12)
-    (=(cost N13N12) 5)
 
     (Serves N2 Curry)
     (Serves N2 Sushi)
@@ -147,17 +88,8 @@
     (Serves N12 Pizza)
 
     (At C N9)
-    (= (capacity C) 10)
-    (= (fuel C) 20)
-    (= (load C) 0)
-
-    (= (volume Pizza) 8)
-    (= (volume Sushi) 4)
-    (= (volume Burrito) 6)
-    (= (volume Beer) 2)
-    (= (volume Soda) 3)
-    (= (volume Curry) 7)
-    (= (volume Taco) 5)
+    (= (money C) 10)
+    (= (timeElapsed C) 1)
 
     (CustomerAt C1 N10)
     (CustomerAt C2 N5)
@@ -165,19 +97,32 @@
     (CustomerAt C4 N11)
     (CustomerAt C5 N8)
 
-    (PetrolAt N4)
+    (= (price Beer) 5)
+    (= (price Pizza) 8)
+    (= (price Sushi) 10)
+    (= (price Burrito) 7)
+    (= (price Soda) 8)
+    (= (price Curry) 12)
+    (= (price Taco) 9)
 
     (Ordered C1 Beer O1)
+    (= (payout O1) 18)
     (Ordered C1 Pizza O2)
+    (= (payout O2) 21)
 
     (Ordered C2 Sushi O3)
+    (= (payout O3) 18)
 
     (Ordered C3 Burrito O4)
+    (= (payout O4) 10)
     (Ordered C3 Soda O5)
+    (= (payout O5) 6)
 
     (Ordered C4 Curry O6)
+    (= (payout O6) 24)
 
     (Ordered C5 Taco O7)
+    (= (payout O7) 28)
 )
 
 (:goal (and
@@ -189,6 +134,8 @@
     (Made O6)
     (Made O7)
 ))
+
+(:metric maximize (money C))
 
 ;un-comment the following line if metric is needed
 ;(:metric minimize (???))

@@ -1,4 +1,4 @@
-(define (problem problem_name_4) (:domain domain_name_4)
+(define (problem problem_name_1_hard) (:domain domain_name_1)
 (:objects
     C - courier
 
@@ -15,42 +15,11 @@
     N11 - node
     N12 - node
     N13 - node
-
-    N1N2 - route
-    N1N6 - route
-    N1N9 - route
-    N1N12 - route
-
-    N2N1 - route
-    N2N3 - route
-
-    N3N2 - route
-    N3N4 - route
-
-    N4N5 - route
-
-    N5N6 - route
-    N5N2 - route
-
-    N6N1 - route
-    N7N1 - route
-
-    N7N6 - route
-    N7N8 - route
-
-    N8N7 - route
-
-    N9N1 - route
-    N9N10 - route
-
-    N10N9 - route
-
-    N11N9 - route
-
-    N12N11 - route
-    N12N13 - route
-
-    N13N12 - route
+    N14 - node
+    N15 - node
+    N16 - node
+    N17 - node
+    N18 - node
 
     C1 - customer
     C2 - customer
@@ -65,6 +34,16 @@
     O5 - order
     O6 - order
     O7 - order
+    O8 - order
+    O9 - order
+    O10 - order
+    O11 - order
+    O12 - order
+    O13 - order
+    O14 - order
+    O15 - order
+    O16 - order
+    O17 - order
 
     Beer - item
     Pizza - item
@@ -77,87 +56,68 @@
 
 (:init
     (Connected N1 N2)
-    (=(cost N1N2) 2)
     (Connected N1 N6)
-    (=(cost N1N6) 3)
     (Connected N1 N9)
-    (=(cost N1N9) 4)
     (Connected N1 N12)
-    (=(cost N1N12) 7)
 
     (Connected N2 N1)
-    (=(cost N2N1) 2)
     (Connected N2 N3)
-    (=(cost N2N3) 2)
 
     (Connected N3 N2)
-    (=(cost N3N2) 2)
     (Connected N3 N4)
-    (=(cost N3N4) 3)
 
     (Connected N4 N5)
-    (=(cost N4N5) 3)
 
     (Connected N5 N2)
-    (=(cost N5N2) 2)
     (Connected N5 N6)
-    (=(cost N5N6) 4)
 
     (Connected N6 N1)
-    (=(cost N6N1) 3)
     (Connected N6 N7)
-    (=(cost N6N7) 2)
 
     (Connected N7 N6)
-    (=(cost N7N6) 2)
     (Connected N7 N8)
-    (=(cost N7N8) 9)
 
     (Connected N8 N7)
-    (=(cost N8N7) 9)
+    (Connected N8 N18)
     
     (Connected N9 N1)
-    (=(cost N9N1) 4)
     (Connected N9 N10)
-    (=(cost N9N10) 2)
 
     (Connected N10 N9)
-    (=(cost N10N9) 2)
 
     (Connected N11 N9)
-    (=(cost N11N9) 2)
+    (Connected N11 N16)
 
     (Connected N12 N11)
-    (=(cost N12N11) 4)
     (Connected N12 N13)
-    (=(cost N12N13) 5)
 
     (Connected N13 N12)
-    (=(cost N13N12) 5)
+    (Connected N13 N14)
+
+    (Connected N14 N3)
+    (Connected N14 N15)
+
+    (Connected N15 N14)
+
+    (Connected N16 N10)
+    (Connected N16 N17)
+
+    (Connected N17 N16)
+
+    (Connected N18 N4)
 
     (Serves N2 Curry)
-    (Serves N2 Sushi)
+    (Serves N18 Sushi)
 
     (Serves N3 Beer)
-    (Serves N3 Soda)
+    (Serves N17 Soda)
 
     (Serves N6 Burrito)
-    (Serves N6 Taco)
+    (Serves N15 Taco)
 
     (Serves N12 Pizza)
 
     (At C N9)
-    (= (capacity C) 10)
-    (= (fuel C) 20)
-    (= (load C) 0)
-
-    (= (volume Pizza) 8)
-    (= (volume Sushi) 4)
-    (= (volume Burrito) 6)
-    (= (volume Beer) 2)
-    (= (volume Soda) 3)
-    (= (volume Curry) 7)
-    (= (volume Taco) 5)
 
     (CustomerAt C1 N10)
     (CustomerAt C2 N5)
@@ -165,19 +125,26 @@
     (CustomerAt C4 N11)
     (CustomerAt C5 N8)
 
-    (PetrolAt N4)
-
     (Ordered C1 Beer O1)
     (Ordered C1 Pizza O2)
+    (Ordered C1 Sushi O4)
 
-    (Ordered C2 Sushi O3)
+    (Ordered C2 Sushi O5)
+    (Ordered C2 Curry O6)
 
-    (Ordered C3 Burrito O4)
-    (Ordered C3 Soda O5)
+    (Ordered C3 Burrito O7)
+    (Ordered C3 Soda O8)
+    (Ordered C3 Taco O9)
+    (Ordered C3 Beer O10)
 
-    (Ordered C4 Curry O6)
+    (Ordered C4 Curry O11)
+    (Ordered C4 Pizza O12)
+    (Ordered C4 Burrito O13)
+    (Ordered C4 Sushi O14)
 
-    (Ordered C5 Taco O7)
+    (Ordered C5 Taco O15)
+    (Ordered C5 Pizza O16)
+    (Ordered C5 Taco O17)
 )
 
 (:goal (and
@@ -188,6 +155,16 @@
     (Made O5)
     (Made O6)
     (Made O7)
+    (Made O8)
+    (Made O9)
+    (Made O10)
+    (Made O11)
+    (Made O12)
+    (Made O13)
+    (Made O14)
+    (Made O15)
+    (Made O16)
+    (Made O17)
 ))
 
 ;un-comment the following line if metric is needed
