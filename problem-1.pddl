@@ -1,4 +1,4 @@
-(define (problem problem_name) (:domain domain_name)
+(define (problem problem_name_1) (:domain domain_name_1)
 (:objects
     C - courier
 

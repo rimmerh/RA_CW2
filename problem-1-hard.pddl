@@ -127,6 +127,7 @@
 
     (Ordered C1 Beer O1)
     (Ordered C1 Pizza O2)
+    (Ordered C1 Taco O3)
     (Ordered C1 Sushi O4)
 
     (Ordered C2 Sushi O5)
