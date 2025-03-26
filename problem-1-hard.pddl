@@ -20,12 +20,22 @@
     N16 - node
     N17 - node
     N18 - node
+    N19 - node
+    N20 - node
+    N21 - node
+    N22 - node
+    N23 - node
+    N24 - node
+    N25 - node
 
     C1 - customer
     C2 - customer
     C3 - customer
     C4 - customer
     C5 - customer
+    C6 - customer
+    C7 - customer
+    C8 - customer
 
     O1 - order
     O2 - order
@@ -65,6 +75,7 @@
 
     (Connected N3 N2)
     (Connected N3 N4)
+    (Connected N3 N21)
 
     (Connected N4 N5)
 
@@ -98,13 +109,32 @@
     (Connected N14 N15)
 
     (Connected N15 N14)
+    (Connected N15 N19)
 
     (Connected N16 N10)
     (Connected N16 N17)
 
     (Connected N17 N16)
+    (Connected N17 N23)
 
     (Connected N18 N4)
+    (Connected N18 N21)
+    (Connected N18 N22)
+
+    (Connected N19 N20)
+
+    (Connected N20 N21)
+
+    (Connected N21 N3)
+    
+    (Connected N22 N8)
+
+    (Connected N23 N24)
+
+    (Connected N24 N25)
+
+    (Connected N25 N7)
+    (Connected N25 N23)
 
     (Serves N2 Curry)
     (Serves N18 Sushi)
@@ -124,6 +154,9 @@
     (CustomerAt C3 N13)
     (CustomerAt C4 N11)
     (CustomerAt C5 N8)
+    (CustomerAt C6 N24)
+    (CustomerAt C7 N22)
+    (CustomerAt C8 N20)
 
     (Ordered C1 Beer O1)
     (Ordered C1 Pizza O2)
@@ -146,6 +179,23 @@
     (Ordered C5 Taco O15)
     (Ordered C5 Pizza O16)
     (Ordered C5 Taco O17)
+
+    (Ordered C6 Burrito O7)
+    (Ordered C6 Soda O8)
+    (Ordered C6 Taco O9)
+    (Ordered C6 Beer O10)
+
+    (Ordered C7 Burrito O7)
+    (Ordered C7 Soda O8)
+    (Ordered C7 Taco O9)
+    (Ordered C7 Beer O10)
+
+    (Ordered C8 Burrito O7)
+    (Ordered C8 Soda O8)
+    (Ordered C8 Taco O9)
+    (Ordered C8 Beer O10)
+
+    
 )
 
 (:goal (and
